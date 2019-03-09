@@ -8,8 +8,8 @@
   },
   "author": "Andrey Nedobylskiy",
   "license": "ISC",
-	"repository": {
-	  "type" : "git",
-	  "url" : "https://github.com/lailune/linux-dtmf.git"
-	}
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lailune/linux-dtmf.git"
+  }
 }
