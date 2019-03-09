@@ -1,29 +1,40 @@
+/**
+ * DTMF decoder based on sox and multimon
+ * Requires multimon, sox installed
+ * libsox-fmt-mp3 for mp3 decoding
+ * @author Andrey Nedobylskiy (admin@twister-vl.ru)
+ */
+
 const LDTMF = require('..');
 const fs = require('fs');
 
 const dtmf = new LDTMF();
 
-
-dtmf.on('data', function (data) {
-    console.log('New data ', '"' + data + '"');
-});
-
-function wait(time) {
-    return new Promise(resolve => {
-        setTimeout(resolve, time);
-    })
-}
-
-
 (async function () {
 
-    while (1) {
-        console.log('ATTEMPT');
-        let decodeResult = await dtmf.decodeBuffer(fs.readFileSync('1234567890.wav'), 'wav', true);
-        console.log('Decoded result', decodeResult);
+    //Decode file or URL
+    let decodeResult = await dtmf.decodeUri('1234567890.wav', 'wav', true);
+    console.log('Decode URI result', decodeResult);
 
-        await wait(1000);
-    }
+    //Decode buffer
+    decodeResult = await dtmf.decodeBuffer(fs.readFileSync('1234567890.wav'), 'wav', true);
+    console.log('Decode Buffer result', decodeResult);
+
+    console.log();
+
+    //Data from stream
+    dtmf.on('data', function (data) {
+        console.log('Symbol', data);
+    });
+
+    //Exit on end
+    dtmf.on('end', function () {
+        process.exit();
+    });
+
+    //Decode stream
+    let buffer = await dtmf.createDecodeBuffer('wav');
+    buffer.write(fs.readFileSync('1234567890.wav'));
 
 
 })();
