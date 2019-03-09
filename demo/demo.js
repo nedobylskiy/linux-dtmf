@@ -3,10 +3,10 @@ const fs = require('fs');
 
 const dtmf = new LDTMF();
 
-/*
+
 dtmf.on('data', function (data) {
     console.log('New data ', '"' + data + '"');
-});*/
+});
 
 function wait(time) {
     return new Promise(resolve => {
@@ -21,6 +21,7 @@ function wait(time) {
         console.log('ATTEMPT');
         let decodeResult = await dtmf.decodeBuffer(fs.readFileSync('1234567890.wav'), 'wav', true);
         console.log('Decoded result', decodeResult);
+
         await wait(1000);
     }
 

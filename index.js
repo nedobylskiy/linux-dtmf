@@ -186,6 +186,24 @@ class LDTMF extends EventEmitter {
         return this.decode(buffer, true, type, returnResult);
     }
 
+    /**
+     * Create stream buffer decode
+     * @param {string} type
+     * @return {Promise<*>}
+     */
+    async createDecodeBuffer(type) {
+        const that = this;
+        return new Promise((resolve, reject) => {
+            that._getMultimon().then(function (multimon) {
+                //Start sox for decoding
+                let sox = new Sox(multimon.pipeName);
+                sox.startDecodeStream(type);
+                resolve(sox);
+            });
+        });
+
+    }
+
 }
 
 
