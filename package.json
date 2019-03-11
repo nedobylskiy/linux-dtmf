@@ -1,6 +1,6 @@
 {
   "name": "linux-dtmf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "DTFM decoder based on sox and multimon",
   "main": "index.js",
   "author": "Andrey Nedobylskiy",
@@ -8,5 +8,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/lailune/linux-dtmf.git"
-  }
+  },
+  "keywords": ["dtmf","multimon","sox","linux"]
 }
