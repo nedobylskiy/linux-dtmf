@@ -1,7 +1,7 @@
 {
   "name": "linux-dtmf",
   "version": "1.0.2",
-  "description": "DTFM decoder based on sox and multimon",
+  "description": "DTMF decoder based on sox and multimon",
   "main": "index.js",
   "author": "Andrey Nedobylskiy",
   "license": "GPL-2.0",
