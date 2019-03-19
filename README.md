@@ -1,4 +1,6 @@
 # linux-DTMF decoder
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flailune%2Flinux-dtmf.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Flailune%2Flinux-dtmf?ref=badge_shield)
+
 
 DTMF decoder based on multimon and SoX.
 
@@ -79,3 +81,6 @@ Decoded data
 ### .on('end', ()=>{})
 
 Decoder stopped 
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flailune%2Flinux-dtmf.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Flailune%2Flinux-dtmf?ref=badge_large)
